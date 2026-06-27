@@ -46,7 +46,7 @@ export async function updateQuoteStatus(req: Request, res: Response, next: NextF
   try {
     const id=  req.params.id;
     const  status= req.body.status;
-    const result= quoteService.updateQuoteStatus(id, status)
+    const result= await quoteService.updateQuoteStatus(id, status)
     return res.status(200).json(result);
   } catch (err) {
     next(err);
